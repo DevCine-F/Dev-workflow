@@ -34,7 +34,8 @@
           <li><a href="#agile">II. Quy Trình Làm Việc</a></li>
           <li><a href="#github">III. Quy Định GitHub</a></li>
           <li><a href="#naming">IV. Quy Tắc Đặt Tên</a></li>
-          <li><a href="#structure">V. Cấu Trúc Thư Mục</a></li>
+          <li><a href="#security">V. Bảo Mật & Kỷ Luật</a></li>
+          <li><a href="#structure">VI. Cấu Trúc Thư Mục</a></li>
         </ul>
       </aside>
 
@@ -79,34 +80,73 @@
             <li>
               <strong>Kỷ luật thời gian:</strong> Mọi thành viên cần cập nhật
               tiến độ công việc trước buổi họp để đảm bảo nội dung trao đổi tập
-              trung vào các vấn đề cần giải quyết (blockers).
+              trung vào các vấn đề cần giải quyết.
             </li>
           </ul>
 
-          <h2 id="agile">II. QUY TRÌNH LÀM VIỆC (AGILE/SCRUM)</h2>
+          <h2 id="agile">II. QUY TRÌNH LÀM VIỆC</h2>
           <p>
             Áp dụng tinh thần từ quy trình doanh nghiệp, dự án sẽ đi qua các
             checkpoint quan trọng:
           </p>
-          <ul class="list">
-            <li>
-              <strong>Giai đoạn Khảo sát:</strong> Chốt danh sách tính năng
-              (Usecase) và thiết kế giao diện (UI/UX).
-            </li>
-            <li>
-              <strong>Giai đoạn Kỹ thuật:</strong> Thiết kế Cơ sở dữ liệu và API
-              trước khi code.
-            </li>
-            <li>
-              <strong>Giai đoạn Phát triển:</strong> Chia nhỏ tính năng theo các
-              kỳ Sprint (thường là 1 tuần).
-            </li>
-            <li>
-              <strong>Kiểm soát chất lượng:</strong> Mỗi tính năng sau khi hoàn
-              thành phải được nhóm trưởng hoặc thành viên khác kiểm tra (Review)
-              trước khi xác nhận hoàn thành.
-            </li>
-          </ul>
+
+          <div class="process-flow">
+            <div class="process-step">
+              <div class="process-marker">01</div>
+              <div class="process-content">
+                <div class="process-title">
+                  <span>Giai đoạn Khảo sát</span>
+                  <span class="process-tag">Planning</span>
+                </div>
+                <p class="process-desc">
+                  Chốt danh sách tính năng (Usecase) và thiết kế giao diện
+                  (UI/UX). Đây là nền tảng để định hình sản phẩm.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-marker">02</div>
+              <div class="process-content">
+                <div class="process-title">
+                  <span>Giai đoạn Kỹ thuật</span>
+                  <span class="process-tag">Architecture</span>
+                </div>
+                <p class="process-desc">
+                  Thiết kế Cơ sở dữ liệu và API trước khi bắt đầu viết code để
+                  đảm bảo tính nhất quán và hiệu suất hệ thống.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-marker">03</div>
+              <div class="process-content">
+                <div class="process-title">
+                  <span>Giai đoạn Phát triển</span>
+                  <span class="process-tag">Development</span>
+                </div>
+                <p class="process-desc">
+                  Thực hiện lập trình các chức năng dựa trên thiết kế và tài
+                  liệu kỹ thuật đã được phê duyệt.
+                </p>
+              </div>
+            </div>
+
+            <div class="process-step">
+              <div class="process-marker">04</div>
+              <div class="process-content">
+                <div class="process-title">
+                  <span>Kiểm soát chất lượng</span>
+                  <span class="process-tag">QC / Review</span>
+                </div>
+                <p class="process-desc">
+                  Mỗi tính năng sau khi hoàn thành phải được nhóm trưởng hoặc
+                  thành viên khác kiểm tra (Review) mã nguồn trước khi xác nhận.
+                </p>
+              </div>
+            </div>
+          </div>
 
           <h2 id="github">III. QUY ĐỊNH GITHUB (PUSH/PULL CODE)</h2>
 
@@ -240,7 +280,168 @@
             </p>
           </div>
 
-          <h2 id="structure">V. CẤU TRÚC THƯ MỤC NGUỒN (SRC/)</h2>
+          <h2 id="security">V. QUY ĐỊNH BẢO MẬT & ĐIỀU CẤM KỴ</h2>
+          <p>
+            Để đảm bảo tính riêng tư và bản quyền của đồ án, mọi thành viên
+            DevCine phải tuân thủ tuyệt đối:
+          </p>
+
+          <div class="security-grid">
+            <div class="security-card">
+              <div class="security-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <div class="security-card-title">Bảo mật thông tin nội bộ</div>
+              <p class="security-card-text">
+                Mọi thông tin về dự án, tiến độ và kỹ thuật chỉ được thảo luận
+                trong phạm vi nội bộ nhóm. Tuyệt đối không chia sẻ ra bên ngoài.
+              </p>
+            </div>
+
+            <div class="security-card">
+              <div class="security-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </div>
+              <div class="security-card-title">Quản lý tài liệu (URD/ERD)</div>
+              <p class="security-card-text">
+                Các file đặc tả, sơ đồ kiến trúc và file thiết kế không được gửi
+                cho bất kỳ cá nhân nào ngoài danh sách thành viên DevCine.
+              </p>
+            </div>
+
+            <div class="security-card">
+              <div class="security-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+              </div>
+              <div class="security-card-title">Đường dẫn nội bộ & Demo</div>
+              <p class="security-card-text">
+                Các liên kết demo, link truy cập hệ thống tạm thời chỉ cung cấp
+                cho thành viên dự án và Giảng viên hướng dẫn.
+              </p>
+            </div>
+
+            <div class="security-card">
+              <div class="security-card-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+                </svg>
+              </div>
+              <div class="security-card-title">Cấu trúc lõi hệ thống</div>
+              <p class="security-card-text">
+                Nghiêm cấm việc xóa hoặc đổi tên các thư mục gốc khi chưa có sự
+                đồng ý của cả nhóm để tránh xung đột mã nguồn.
+              </p>
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ff3c3c"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+                />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <h3
+                style="
+                  margin: 0;
+                  color: #ff3c3c;
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                "
+              >
+                Hình thức kỷ luật
+              </h3>
+            </div>
+            <p
+              style="
+                font-weight: 600;
+                color: var(--color-on-surface);
+                margin-bottom: 12px;
+              "
+            >
+              Vi phạm bất kỳ điều nào trong các quy định bảo mật và điều cấm kỵ
+              nêu trên sẽ dẫn đến:
+            </p>
+            <ul class="list" style="margin-bottom: 0">
+              <li>
+                <strong>Huỷ bỏ toàn bộ kết quả đánh giá</strong> đối với thành
+                viên vi phạm.
+              </li>
+              <li>
+                <strong>Trục xuất (kick) ngay lập tức</strong> khỏi nhóm dự án.
+              </li>
+            </ul>
+          </div>
+
+          <h2 id="structure">VI. CẤU TRÚC THƯ MỤC NGUỒN (SRC/)</h2>
           <pre><code>src/
 ├── Customer/                       # Phân vùng dành cho Khách hàng
 │   ├── assets/                     # Tài nguyên (hình ảnh, css, icon) riêng cho khách
