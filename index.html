@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sổ Tay Quy Trình & Quy Định Triển Khai (DATN)</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="navbar-container">
+        <div class="brand-group">
+          <div class="brand-text">
+            <div class="brand-title">DEVCINE</div>
+            <div class="brand-subtitle">QUY ƯỚC — TÀI LIỆU HƯỚNG DẪN</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-group">NỘI DUNG CHÍNH</div>
+        <ul class="sidebar-links">
+          <li>
+            <a href="#overview" class="active">I. Quy Định Chung & Giao Tiếp</a>
+          </li>
+          <li><a href="#agile">II. Quy Trình Làm Việc</a></li>
+          <li><a href="#github">III. Quy Định GitHub</a></li>
+          <li><a href="#naming">IV. Quy Tắc Đặt Tên</a></li>
+          <li><a href="#structure">V. Cấu Trúc Thư Mục</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="content">
+        <div class="content-wrapper">
+          <div class="hero-section">
+            <div class="hero-header">
+              <span class="hero-subtitle gradient-text"
+                >SỔ TAY QUY TRÌNH & QUY ĐỊNH TRIỂN KHAI DỰ ÁN</span
+              >
+              <h1 class="hero-title gradient-text">DEVCINE</h1>
+            </div>
+            <p class="lead text-center">
+              Quy ước - Quy định - Tài liệu hướng dẫn áp dụng cho dự án
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">GIAI ĐOẠN</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">CHÚ Ý</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">BẢO MẬT</div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="section-divider" />
+
+          <h2 id="overview">I. QUY ĐỊNH CHUNG & GIAO TIẾP</h2>
+          <ul class="list">
+            <li>
+              <strong>Họp hằng ngày (Daily Meeting):</strong> Thời gian và hình
+              thức họp sẽ được thực hiện linh hoạt theo thông báo cụ thể trên
+              nhóm trao đổi chính.
+            </li>
+            <li>
+              <strong>Kỷ luật thời gian:</strong> Mọi thành viên cần cập nhật
+              tiến độ công việc trước buổi họp để đảm bảo nội dung trao đổi tập
+              trung vào các vấn đề cần giải quyết (blockers).
+            </li>
+          </ul>
+
+          <h2 id="agile">II. QUY TRÌNH LÀM VIỆC (AGILE/SCRUM)</h2>
+          <p>
+            Áp dụng tinh thần từ quy trình doanh nghiệp, dự án sẽ đi qua các
+            checkpoint quan trọng:
+          </p>
+          <ul class="list">
+            <li>
+              <strong>Giai đoạn Khảo sát:</strong> Chốt danh sách tính năng
+              (Usecase) và thiết kế giao diện (UI/UX).
+            </li>
+            <li>
+              <strong>Giai đoạn Kỹ thuật:</strong> Thiết kế Cơ sở dữ liệu và API
+              trước khi code.
+            </li>
+            <li>
+              <strong>Giai đoạn Phát triển:</strong> Chia nhỏ tính năng theo các
+              kỳ Sprint (thường là 1 tuần).
+            </li>
+            <li>
+              <strong>Kiểm soát chất lượng:</strong> Mỗi tính năng sau khi hoàn
+              thành phải được nhóm trưởng hoặc thành viên khác kiểm tra (Review)
+              trước khi xác nhận hoàn thành.
+            </li>
+          </ul>
+
+          <h2 id="github">III. QUY ĐỊNH GITHUB (PUSH/PULL CODE)</h2>
+
+          <h3>1. Các lệnh Git cơ bản (Copy & Run)</h3>
+          <p>
+            Mọi thành viên cần tuân thủ trình tự lệnh để tránh xung đột mã
+            nguồn:
+          </p>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+              margin-bottom: 32px;
+            "
+          >
+            <div>
+              <p style="margin-bottom: 8px; color: var(--color-on-surface)">
+                Cập nhật code mới nhất trước khi làm:
+              </p>
+              <pre
+                style="margin-bottom: 0"
+              ><code>git pull origin main</code></pre>
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; color: var(--color-on-surface)">
+                Kiểm tra các file đã thay đổi:
+              </p>
+              <pre style="margin-bottom: 0"><code>git status</code></pre>
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; color: var(--color-on-surface)">
+                Thêm tất cả thay đổi vào hàng chờ:
+              </p>
+              <pre style="margin-bottom: 0"><code>git add .</code></pre>
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; color: var(--color-on-surface)">
+                Xác nhận thay đổi (Theo quy tắc Commit bên dưới):
+              </p>
+              <pre
+                style="margin-bottom: 0"
+              ><code>git commit -m "Tính năng: Mô tả công việc bằng tiếng Việt"</code></pre>
+            </div>
+            <div>
+              <p style="margin-bottom: 8px; color: var(--color-on-surface)">
+                Đẩy code lên nhánh chính:
+              </p>
+              <pre
+                style="margin-bottom: 0"
+              ><code>git push origin main</code></pre>
+            </div>
+          </div>
+
+          <h3>2. Quy tắc đẩy code (Commit Strategy)</h3>
+          <p>
+            Dù tên biến/hàm là tiếng Anh, phần mô tả commit vẫn sử dụng tiếng
+            Việt để cả nhóm dễ theo dõi tiến độ:
+          </p>
+          <ul class="list">
+            <li>
+              <strong>Cấu trúc:</strong> [Loại công việc]: [Mô tả chi tiết]
+            </li>
+            <li><strong>Tính năng:</strong> Thêm giao diện trang thanh toán</li>
+            <li>
+              <strong>Sửa lỗi:</strong> Khắc phục lỗi không hiển thị danh sách
+              sản phẩm
+            </li>
+            <li><strong>Cập nhật:</strong> Thay đổi logo và màu sắc header</li>
+          </ul>
+
+          <h2 id="naming">IV. QUY TẮC ĐẶT TÊN (NAMING CONVENTION)</h2>
+          <p>Sử dụng Tiếng Anh và tuân thủ các quy tắc sau:</p>
+
+          <h3>1. Đối với Thư mục (Folder) và Tệp tin (File)</h3>
+          <ul class="list">
+            <li>
+              <strong>Quy tắc:</strong> Sử dụng PascalCase (Viết hoa chữ cái đầu
+              của mỗi từ).
+            </li>
+            <li>
+              <strong>Ví dụ:</strong> <code>ComingSoon</code>,
+              <code>UserManagement</code>, <code>ProductDetail.vue</code>,
+              <code>HomeView.vue</code>.
+            </li>
+          </ul>
+
+          <h3>2. Đối với Biến (Variable) và Hàm (Function)</h3>
+          <ul class="list">
+            <li>
+              <strong>Quy tắc:</strong> Sử dụng camelCase (Viết thường chữ đầu,
+              viết hoa các chữ sau).
+            </li>
+            <li>
+              <strong>Ví dụ:</strong> <code>getNameAccount</code>,
+              <code>isUserLoggedIn</code>, <code>totalPrice</code>,
+              <code>calculateTotal()</code>.
+            </li>
+          </ul>
+
+          <h3>3. Các nguyên tắc bổ trợ (Từ tiêu chuẩn Vietnix)</h3>
+          <ul class="list">
+            <li>
+              <strong>Nguyên tắc S-I-D:</strong> Tên phải Ngắn gọn (Short), Dễ
+              hiểu (Intuitive), và Mô tả đúng ý nghĩa (Descriptive).
+            </li>
+            <li>
+              <strong>Tránh viết tắt:</strong> Luôn ưu tiên viết đầy đủ để tránh
+              gây hiểu lầm cho thành viên khác (VD: dùng <code>event</code> thay
+              vì <code>ev</code>).
+            </li>
+            <li>
+              <strong>Tránh lặp từ:</strong> Không lặp lại tên Class/Module
+              trong tên hàm (VD: trong class User, dùng
+              <code>updateProfile()</code> thay vì
+              <code>updateUserProfile()</code>).
+            </li>
+            <li>
+              <strong>Số ít/Số nhiều:</strong> Đối với mảng (Array) hoặc danh
+              sách, bắt buộc dùng danh từ số nhiều.
+            </li>
+            <li>
+              <strong>Cấu trúc hàm (A/HC/LC):</strong> Tên hàm nên theo thứ tự:
+              Hành động + Ngữ cảnh cao + Ngữ cảnh thấp.
+            </li>
+          </ul>
+          <div class="alert alert-warning" style="margin-top: 16px">
+            <p>
+              <strong>Ví dụ:</strong> <code>getUserMessages</code>,
+              <code>shouldDisplayLoading</code>.
+            </p>
+          </div>
+
+          <h2 id="structure">V. CẤU TRÚC THƯ MỤC NGUỒN (SRC/)</h2>
+          <pre><code>src/
+├── Customer/                       # Phân vùng dành cho Khách hàng
+│   ├── assets/                     # Tài nguyên (hình ảnh, css, icon) riêng cho khách
+│   ├── components/                 # Các thành phần giao diện nhỏ dùng chung cho khách
+│   │   ├── Header.vue              # Đầu trang
+│   │   ├── Footer.vue              # Chân trang
+│   │   └── Navbar.vue              # Thanh điều hướng khách hàng
+│   ├── layouts/                    # Các khung giao diện mẫu (Layout) cho khách
+│   ├── router/                     # Cấu hình đường dẫn (Route) cho phân vùng khách
+│   └── views/                      # Các trang tính năng chính của khách
+│       ├── Home/                   # Trang chủ khách hàng
+│       │   ├── NowShowing.vue      # Thành phần: Phim đang chiếu
+│       │   ├── ComingSoon.vue      # Thành phần: Phim sắp ra mắt
+│       │   ├── Promotions.vue      # Thành phần: Khuyến mãi
+│       │   ├── Offers.vue          # Thành phần: Ưu đãi
+│       │   └── AboutUs.vue         # Thành phần: Giới thiệu
+│       └── Products/               # Trang sản phẩm/phim
+│           ├── ProductList.vue     # Danh sách phim
+│           └── ProductDetail.vue   # Chi tiết phim
+│
+├── Admin/                          # Phân vùng dành cho Quản trị (ROOT, ADMIN, MANAGER, STAFF)
+│   ├── assets/                     # Tài nguyên (hình ảnh, css) riêng cho nội bộ
+│   ├── components/                 # Các thành phần giao diện nhỏ dùng chung nội bộ
+│   │   ├── Sidebar.vue             # Thanh điều hướng bên cạnh (Menu quản trị)
+│   │   └── Topbar.vue              # Thanh công cụ phía trên (Profile, Thông báo)
+│   ├── layouts/                    # Các khung giao diện mẫu (Layout) cho quản trị
+│   ├── router/                     # Cấu hình đường dẫn và Phân quyền (Check Role)
+│   └── views/                      # Các trang tính năng quản trị
+│       ├── Dashboard/              # Trang chủ quản trị (Thống kê, tổng quan)
+│       │   ├── StatCard.vue        # Thành phần: Thẻ thống kê
+│       │   └── RevenueChart.vue    # Thành phần: Biểu đồ doanh thu
+│       ├── Showtimes/              # Chức năng: Lịch chiếu
+│       │   ├── DateSelector.vue    # Thành phần: Bộ chọn ngày
+│       │   ├── Timeline.vue        # Thành phần: Trục thời gian
+│       │   ├── RoomList.vue        # Thành phần: Danh sách phòng chiếu
+│       │   └── ShowtimeCard.vue    # Thành phần: Thẻ suất chiếu phim
+│       ├── HumanResources/         # Chức năng: Quản lý nhân sự
+│       │   ├── StaffList.vue       # Thành phần: Danh sách nhân viên
+│       │   └── Attendance.vue      # Thành phần: Chấm công
+│       ├── Branches/               # Chức năng: Quản lý chi nhánh/cụm rạp
+│       │   ├── BranchInfo.vue      # Thành phần: Thông tin chi nhánh
+│       │   └── RoomMap.vue         # Thành phần: Sơ đồ phòng chiếu
+│       └── System/                 # Chức năng: Hệ thống (Dành riêng cho ROOT)
+│           ├── SystemLogs.vue      # Thành phần: Nhật ký hệ thống
+│           └── Settings.vue        # Thành phần: Cài đặt máy chủ
+│
+├── App.vue                         # File gốc của ứng dụng (Chứa &lt;router-view /&gt;)
+└── main.js                         # File khởi tạo chính của dự án</code></pre>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
