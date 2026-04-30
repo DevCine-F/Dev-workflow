@@ -32,8 +32,21 @@
             <a href="#overview" class="active">I. Quy Định Chung & Giao Tiếp</a>
           </li>
           <li><a href="#agile">II. Quy Trình Làm Việc</a></li>
-          <li><a href="#github">III. Quy Định GitHub</a></li>
-          <li><a href="#naming">IV. Quy Tắc Đặt Tên</a></li>
+          <li>
+            <a href="#github">III. Quy Định GitHub</a>
+            <ul class="sub-sidebar-links">
+              <li><a href="#git-commands">1. Lệnh Git cơ bản</a></li>
+              <li><a href="#git-commit">2. Quy tắc Commit</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#naming">IV. Quy Tắc Đặt Tên</a>
+            <ul class="sub-sidebar-links">
+              <li><a href="#naming-files">1. Thư mục & Tệp tin</a></li>
+              <li><a href="#naming-vars">2. Biến & Hàm</a></li>
+              <li><a href="#naming-principles">3. Nguyên tắc bổ trợ</a></li>
+            </ul>
+          </li>
           <li><a href="#security">V. Bảo Mật & Kỷ Luật</a></li>
           <li><a href="#structure">VI. Cấu Trúc Thư Mục</a></li>
         </ul>
@@ -150,7 +163,7 @@
 
           <h2 id="github">III. QUY ĐỊNH GITHUB (PUSH/PULL CODE)</h2>
 
-          <h3>1. Các lệnh Git cơ bản (Copy & Run)</h3>
+          <h3 id="git-commands">1. Các lệnh Git cơ bản (Copy & Run)</h3>
           <p>
             Mọi thành viên cần tuân thủ trình tự lệnh để tránh xung đột mã
             nguồn:
@@ -189,7 +202,7 @@
               </p>
               <pre
                 style="margin-bottom: 0"
-              ><code>git commit -m "Tính năng: Mô tả công việc bằng tiếng Việt"</code></pre>
+              ><code>git commit -m "feat(customer): add movie list view"</code></pre>
             </div>
             <div>
               <p style="margin-bottom: 8px; color: var(--color-on-surface)">
@@ -201,27 +214,160 @@
             </div>
           </div>
 
-          <h3>2. Quy tắc đẩy code (Commit Strategy)</h3>
-          <p>
-            Dù tên biến/hàm là tiếng Anh, phần mô tả commit vẫn sử dụng tiếng
-            Việt để cả nhóm dễ theo dõi tiến độ:
-          </p>
-          <ul class="list">
-            <li>
-              <strong>Cấu trúc:</strong> [Loại công việc]: [Mô tả chi tiết]
-            </li>
-            <li><strong>Tính năng:</strong> Thêm giao diện trang thanh toán</li>
-            <li>
-              <strong>Sửa lỗi:</strong> Khắc phục lỗi không hiển thị danh sách
-              sản phẩm
-            </li>
-            <li><strong>Cập nhật:</strong> Thay đổi logo và màu sắc header</li>
-          </ul>
+          <h3 id="git-commit">2. Quy tắc đẩy code (Commit Strategy)</h3>
+          <div class="commit-rules">
+            <div class="rule-group">
+              <h4>A. Cấu trúc chuẩn</h4>
+              <p>Mỗi Commit Message phải bao gồm:</p>
+              <div class="commit-pattern">
+                &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;
+              </div>
+              <ul class="list">
+                <li><strong>Type:</strong> Loại thay đổi (Bắt buộc).</li>
+                <li>
+                  <strong>Scope:</strong> Phạm vi/Module thay đổi (Tùy chọn nhưng
+                  khuyến khích).
+                </li>
+                <li>
+                  <strong>Description:</strong> Mô tả ngắn gọn bằng Tiếng Anh
+                  (Bắt buộc).
+                </li>
+              </ul>
+            </div>
+
+            <div class="rule-group">
+              <h4>B. Các Type bắt buộc (Mandatory Types)</h4>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Type</th>
+                      <th>Ý nghĩa (Dành cho việc chọn loại)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>feat</code></td>
+                      <td>Thêm một tính năng mới (Feature)</td>
+                    </tr>
+                    <tr>
+                      <td><code>fix</code></td>
+                      <td>Sửa một lỗi (Bug fix)</td>
+                    </tr>
+                    <tr>
+                      <td><code>docs</code></td>
+                      <td>Thay đổi liên quan đến tài liệu, comment</td>
+                    </tr>
+                    <tr>
+                      <td><code>style</code></td>
+                      <td>
+                        Thay đổi về format code (khoảng trắng, dấu phẩy...) -
+                        KHÔNG đổi logic
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>refactor</code></td>
+                      <td>
+                        Tái cấu trúc mã nguồn - KHÔNG sửa lỗi, KHÔNG thêm tính
+                        năng
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>perf</code></td>
+                      <td>Cải thiện hiệu suất code (Performance)</td>
+                    </tr>
+                    <tr>
+                      <td><code>test</code></td>
+                      <td>Thêm hoặc sửa các file unit test</td>
+                    </tr>
+                    <tr>
+                      <td><code>chore</code></td>
+                      <td>
+                        Cập nhật thư viện, cấu hình build, công cụ hỗ trợ (như
+                        .gitignore)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="rule-group">
+              <h4>C. Hướng dẫn chi tiết & Yêu cầu</h4>
+              <ul class="list">
+                <li>
+                  <strong>Ngôn ngữ (Language):</strong> Bắt buộc sử dụng
+                  <strong>Tiếng Anh</strong> cho toàn bộ nội dung commit
+                  message. (Ghi chú nội bộ vẫn có thể dùng Tiếng Việt).
+                </li>
+                <li>
+                  <strong>Phạm vi (Scope):</strong> Sử dụng các scope tương ứng
+                  với cấu trúc DevCine: <code>customer</code>,
+                  <code>admin</code>, <code>ui</code>, <code>auth</code>,
+                  <code>db</code>.
+                </li>
+                <li>
+                  <strong>Mô tả (Description):</strong> Sử dụng câu mệnh lệnh
+                  (Imperative mood), thì hiện tại (ví dụ: dùng <code>add</code>
+                  thay vì <code>added</code>). Không viết hoa chữ cái đầu tiên,
+                  không dùng dấu chấm cuối câu.
+                </li>
+              </ul>
+            </div>
+
+            <div class="rule-group">
+              <h4>D. Ví dụ minh họa (Examples)</h4>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Nội dung thay đổi</th>
+                      <th>Commit Message chuẩn</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Thêm trang danh sách phim</td>
+                      <td><code>feat(customer): add movie list view</code></td>
+                    </tr>
+                    <tr>
+                      <td>Sửa lỗi không hiển thị suất chiếu</td>
+                      <td>
+                        <code>fix(admin): resolve showtime display issue</code>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cập nhật file README dự án</td>
+                      <td><code>docs: update project installation guide</code></td>
+                    </tr>
+                    <tr>
+                      <td>Tối ưu lại hàm tính tiền vé</td>
+                      <td>
+                        <code>refactor: optimize ticket price calculation</code>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Thêm thư viện Axios để gọi API</td>
+                      <td><code>chore: install axios library</code></td>
+                    </tr>
+                    <tr>
+                      <td>Sửa format code trong Sidebar</td>
+                      <td>
+                        <code
+                          >style(admin): format sidebar component code</code
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
           <h2 id="naming">IV. QUY TẮC ĐẶT TÊN (NAMING CONVENTION)</h2>
           <p>Sử dụng Tiếng Anh và tuân thủ các quy tắc sau:</p>
 
-          <h3>1. Đối với Thư mục (Folder) và Tệp tin (File)</h3>
+          <h3 id="naming-files">1. Đối với Thư mục (Folder) và Tệp tin (File)</h3>
           <ul class="list">
             <li>
               <strong>Quy tắc:</strong> Sử dụng PascalCase (Viết hoa chữ cái đầu
@@ -234,7 +380,7 @@
             </li>
           </ul>
 
-          <h3>2. Đối với Biến (Variable) và Hàm (Function)</h3>
+          <h3 id="naming-vars">2. Đối với Biến (Variable) và Hàm (Function)</h3>
           <ul class="list">
             <li>
               <strong>Quy tắc:</strong> Sử dụng camelCase (Viết thường chữ đầu,
@@ -247,7 +393,7 @@
             </li>
           </ul>
 
-          <h3>3. Các nguyên tắc bổ trợ (Từ tiêu chuẩn Vietnix)</h3>
+          <h3 id="naming-principles">3. Các nguyên tắc bổ trợ (Từ tiêu chuẩn Vietnix)</h3>
           <ul class="list">
             <li>
               <strong>Nguyên tắc S-I-D:</strong> Tên phải Ngắn gọn (Short), Dễ

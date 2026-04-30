@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('h1[id], h2[id]');
-    const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+    const sections = document.querySelectorAll('h1[id], h2[id], h3[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar-links a, .sub-sidebar-links a');
     const tocLinks = document.querySelectorAll('.toc-links a');
 
     // Smooth scrolling for sidebar and toc links
