@@ -589,53 +589,43 @@
 
           <h2 id="structure">VI. CẤU TRÚC THƯ MỤC NGUỒN (SRC/)</h2>
           <pre><code>src/
-├── Customer/                       # Phân vùng dành cho Khách hàng
-│   ├── assets/                     # Tài nguyên (hình ảnh, css, icon) riêng cho khách
-│   ├── components/                 # Các thành phần giao diện nhỏ dùng chung cho khách
-│   │   ├── Header.vue              # Đầu trang
-│   │   ├── Footer.vue              # Chân trang
-│   │   └── Navbar.vue              # Thanh điều hướng khách hàng
-│   ├── layouts/                    # Các khung giao diện mẫu (Layout) cho khách
-│   ├── router/                     # Cấu hình đường dẫn (Route) cho phân vùng khách
-│   └── views/                      # Các trang tính năng chính của khách
-│       ├── Home/                   # Trang chủ khách hàng
-│       │   ├── NowShowing.vue      # Thành phần: Phim đang chiếu
-│       │   ├── ComingSoon.vue      # Thành phần: Phim sắp ra mắt
-│       │   ├── Promotions.vue      # Thành phần: Khuyến mãi
-│       │   ├── Offers.vue          # Thành phần: Ưu đãi
-│       │   └── AboutUs.vue         # Thành phần: Giới thiệu
-│       └── Products/               # Trang sản phẩm/phim
-│           ├── ProductList.vue     # Danh sách phim
-│           └── ProductDetail.vue   # Chi tiết phim
-│
-├── Admin/                          # Phân vùng dành cho Quản trị (ROOT, ADMIN, MANAGER, STAFF)
-│   ├── assets/                     # Tài nguyên (hình ảnh, css) riêng cho nội bộ
-│   ├── components/                 # Các thành phần giao diện nhỏ dùng chung nội bộ
-│   │   ├── Sidebar.vue             # Thanh điều hướng bên cạnh (Menu quản trị)
-│   │   └── Topbar.vue              # Thanh công cụ phía trên (Profile, Thông báo)
-│   ├── layouts/                    # Các khung giao diện mẫu (Layout) cho quản trị
-│   ├── router/                     # Cấu hình đường dẫn và Phân quyền (Check Role)
-│   └── views/                      # Các trang tính năng quản trị
-│       ├── Dashboard/              # Trang chủ quản trị (Thống kê, tổng quan)
-│       │   ├── StatCard.vue        # Thành phần: Thẻ thống kê
-│       │   └── RevenueChart.vue    # Thành phần: Biểu đồ doanh thu
-│       ├── Showtimes/              # Chức năng: Lịch chiếu
-│       │   ├── DateSelector.vue    # Thành phần: Bộ chọn ngày
-│       │   ├── Timeline.vue        # Thành phần: Trục thời gian
-│       │   ├── RoomList.vue        # Thành phần: Danh sách phòng chiếu
-│       │   └── ShowtimeCard.vue    # Thành phần: Thẻ suất chiếu phim
-│       ├── HumanResources/         # Chức năng: Quản lý nhân sự
-│       │   ├── StaffList.vue       # Thành phần: Danh sách nhân viên
-│       │   └── Attendance.vue      # Thành phần: Chấm công
-│       ├── Branches/               # Chức năng: Quản lý chi nhánh/cụm rạp
-│       │   ├── BranchInfo.vue      # Thành phần: Thông tin chi nhánh
-│       │   └── RoomMap.vue         # Thành phần: Sơ đồ phòng chiếu
-│       └── System/                 # Chức năng: Hệ thống (Dành riêng cho ROOT)
-│           ├── SystemLogs.vue      # Thành phần: Nhật ký hệ thống
-│           └── Settings.vue        # Thành phần: Cài đặt máy chủ
-│
-├── App.vue                         # File gốc của ứng dụng (Chứa &lt;router-view /&gt;)
-└── main.js                         # File khởi tạo chính của dự án</code></pre>
+├── api/                    # Quản lý toàn bộ lời gọi API (Axios instance)
+│   ├── admin/              # API cho các chức năng quản trị (phim, rạp, nhân sự)
+│   └── customer/           # API cho khách hàng (đặt vé, lịch chiếu, profile)
+├── assets/                 # Tài nguyên tĩnh dùng chung cho toàn dự án
+│   ├── images/             # Logo, banners, placeholder ảnh phim
+│   ├── icons/              # Các file svg, icon tùy chỉnh
+│   └── styles/             # Global CSS, Tailwind config, font-face
+├── components/             # Các thành phần giao diện tái sử dụng (UI Components)
+│   ├── common/             # Dùng ở cả 2 bên (AppButton, AppModal, AppLoading)
+│   ├── admin/              # Component chỉ Admin dùng (Sidebar, StatCard, RevenueChart)
+│   └── customer/           # Component chỉ Khách dùng (MovieCard, SeatMap, BookingTimer)
+├── composables/            # Logic tái sử dụng (useAuth, useSocket, useTheme)
+├── layouts/                # Các khung giao diện chính (Layout mẫu)
+│   ├── AdminLayout.vue     # Layout có Sidebar/Topbar cho quản trị
+│   ├── CustomerLayout.vue  # Layout có Navbar/Footer cho khách hàng
+│   └── AuthLayout.vue      # Layout tối giản cho trang Login/Register
+├── router/                 # Cấu hình định tuyến và Phân quyền (Check Role)
+│   ├── admin.js            # Định nghĩa các routes phía Admin
+│   ├── customer.js         # Định nghĩa các routes phía Customer
+│   └── index.js            # File tổng hợp và xử lý logic Middleware (chặn quyền)
+├── stores/                 # Quản lý trạng thái toàn cục (Pinia)
+│   ├── auth.js             # Lưu thông tin User, Token, Role
+│   └── booking.js          # Lưu thông tin đặt vé tạm thời (phim, ghế, giá)
+├── utils/                  # Các hàm bổ trợ (Helper functions)
+│   ├── format.js           # Định dạng tiền tệ (VND), ngày tháng (DD/MM/YYYY)
+│   └── constants.js        # Lưu các hằng số (Trạng thái vé, Loại nhân viên, API URL)
+├── views/                  # Các trang (Page) hoàn chỉnh
+│   ├── admin/              # Thư mục chứa các trang quản trị
+│   │   ├── Dashboard.vue   
+│   │   ├── CinemaManager.vue
+│   │   └── StaffManager.vue
+│   └── customer/           # Thư mục chứa các trang khách hàng
+│       ├── HomeView.vue    
+│       ├── MovieDetail.vue
+│       └── BookingView.vue
+├── App.vue                 # File gốc (Root Component)
+└── main.js                 # Điểm khởi tạo chính (Import Pinia, Router, Tailwind)</code></pre>
         </div>
       </main>
     </div>
